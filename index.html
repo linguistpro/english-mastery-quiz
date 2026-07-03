@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LinguistPro - Quiz Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-background": "#111c2d",
+                "on-tertiary": "#ffffff",
+                "on-error-container": "#93000a",
+                "surface-variant": "#d8e3fb",
+                "surface-container": "#e7eeff",
+                "tertiary-container": "#bc4800",
+                "surface-container-high": "#dee8ff",
+                "secondary": "#0060ac",
+                "on-primary-container": "#eeefff",
+                "error-container": "#ffdad6",
+                "surface-bright": "#f9f9ff",
+                "on-surface": "#111c2d",
+                "on-tertiary-fixed": "#360f00",
+                "secondary-fixed": "#d4e3ff",
+                "outline-variant": "#c3c6d7",
+                "primary-fixed": "#dbe1ff",
+                "surface-tint": "#0053db",
+                "on-primary-fixed": "#00174b",
+                "surface-container-highest": "#d8e3fb",
+                "on-secondary": "#ffffff",
+                "inverse-primary": "#b4c5ff",
+                "primary": "#004ac6",
+                "on-secondary-fixed-variant": "#004883",
+                "inverse-surface": "#263143",
+                "surface-dim": "#cfdaf2",
+                "on-surface-variant": "#434655",
+                "on-primary-fixed-variant": "#003ea8",
+                "on-primary": "#ffffff",
+                "outline": "#737686",
+                "background": "#f9f9ff",
+                "primary-fixed-dim": "#b4c5ff",
+                "surface-container-lowest": "#ffffff",
+                "on-tertiary-container": "#ffede6",
+                "tertiary-fixed-dim": "#ffb596",
+                "tertiary": "#943700",
+                "surface-container-low": "#f0f3ff",
+                "on-secondary-fixed": "#001c39",
+                "on-secondary-container": "#003c70",
+                "surface": "#f9f9ff",
+                "error": "#ba1a1a",
+                "secondary-fixed-dim": "#a4c9ff",
+                "on-tertiary-fixed-variant": "#7d2d00",
+                "primary-container": "#2563eb",
+                "secondary-container": "#64a8fe",
+                "inverse-on-surface": "#ecf1ff",
+                "on-error": "#ffffff",
+                "tertiary-fixed": "#ffdbcd"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "xl": "32px",
+                "container-max": "1200px",
+                "md": "16px",
+                "3xl": "64px",
+                "margin-desktop": "24px",
+                "lg": "24px",
+                "base": "4px",
+                "xs": "4px",
+                "margin-mobile": "16px",
+                "2xl": "48px",
+                "gutter": "16px",
+                "sm": "8px"
+            },
+            "fontFamily": {
+                "label-md": ["Inter"],
+                "label-sm": ["Inter"],
+                "headline-md": ["Inter"],
+                "headline-lg": ["Inter"],
+                "headline-xl": ["Inter"],
+                "body-lg": ["Inter"],
+                "body-md": ["Inter"],
+                "headline-lg-mobile": ["Inter"]
+            },
+            "fontSize": {
+                "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #2563EB;
+            top: -20px;
+            opacity: 0;
+            border-radius: 2px;
+            z-index: 10;
+        }
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+        .animate-fall {
+            animation: fall 3s ease-out forwards;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+        #score-ring {
+            transition: stroke-dashoffset 1s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 max-w-container-max mx-auto bg-surface border-b border-outline-variant shadow-sm">
+<div class="font-headline-md text-headline-md font-bold text-primary">LinguistPro</div>
+<nav class="hidden md:flex gap-xl h-full items-center">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="quiz.html">Quiz</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Leaderboard</a>
+</nav>
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVgiqysWoBEOZT35Wrljbt6TwR1Hjob0MaEHjgb4SDvDePCWBm_7-vaiTWrGcLMScYRWgSbWIMZnTPqu0C9eLpt34Z92OKm2Atyh8Y27WhIlUCT3R8gPquOd44CpG5SQA9Es_zACgMEx4ZfYz2kjlm_1SKOPkwD1Vlc0J9cInZN7GIo-7_LRugRXEHD3HdybL3j0UM2C-sGxdD-aUeGAIWhdzBFJjvYEBuN2vR-WYQ0G1S0pwldOJ8"/>
+</div>
+<span class="font-label-md text-label-md text-primary hidden md:block">Profile</span>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<!-- Celebration Header -->
+<section class="mb-3xl text-center relative overflow-hidden py-lg">
+<div class="absolute inset-0 pointer-events-none" id="confetti-container"></div>
+<div class="inline-flex items-center justify-center p-base bg-secondary-fixed rounded-full mb-md animate-bounce">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">celebration</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-xs md:text-headline-xl text-headline-lg-mobile">Level Completed!</h1>
+<p class="text-on-surface-variant font-body-lg text-body-lg" id="welcome-text">Outstanding performance! You're mastering Advanced Syntax.</p>
+</section>
+<!-- Bento Results Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg items-stretch">
+<!-- Final Score Card (Main Bento) -->
+<div class="md:col-span-8 flex flex-col gap-lg">
+<div class="glass-card rounded-xl p-xl shadow-sm flex flex-col md:flex-row items-center gap-xl">
+<div class="relative w-48 h-48 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-high" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-primary" cx="96" cy="96" fill="transparent" id="score-ring" r="88" stroke="currentColor" stroke-dasharray="552.92" stroke-dashoffset="552.92" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-xl text-headline-xl text-primary" id="score-text">0/0</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Correct</span>
+</div>
+</div>
+<div class="flex-grow text-center md:text-left">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-sm" id="accuracy-title">Your Accuracy: 0%</h2>
+<p class="text-on-surface-variant mb-lg max-w-md">
+                            You've earned <span class="font-bold text-primary" id="xp-earned">0</span> XP. 
+                            <span id="feedback-quote">Keep up this momentum to unlock the Platinum League!</span>
+</p>
+<div class="flex flex-wrap gap-sm justify-center md:justify-start">
+<span class="bg-surface-container-high text-secondary font-label-sm text-label-sm px-md py-xs rounded-full border border-outline-variant">Vocabulary +25</span>
+<span class="bg-surface-container-high text-secondary font-label-sm text-label-sm px-md py-xs rounded-full border border-outline-variant">Grammar +15</span>
+<span class="bg-surface-container-high text-secondary font-label-sm text-label-sm px-md py-xs rounded-full border border-outline-variant">Speed Bonus +10</span>
+</div>
+</div>
+</div>
+<!-- Detailed Breakdown -->
+<div class="glass-card rounded-xl overflow-hidden shadow-sm">
+<div class="p-lg bg-surface-container border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-on-surface">Question Breakdown</h3>
+<div class="flex gap-md">
+<span class="flex items-center gap-xs font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-3 h-3 rounded-full bg-primary"></span> Correct
+                            </span>
+<span class="flex items-center gap-xs font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-3 h-3 rounded-full bg-error"></span> Incorrect
+                            </span>
+</div>
+</div>
+<div class="divide-y divide-outline-variant" id="breakdown-list">
+<!-- Items injected by JS -->
+</div>
+<button class="w-full py-md text-primary font-label-md text-label-md hover:bg-surface-container-high transition-colors flex items-center justify-center gap-xs" id="view-all-btn">
+                        View Detailed History <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Sidebar Actions & Stats -->
+<div class="md:col-span-4 flex flex-col gap-lg">
+<!-- Action Card -->
+<div class="bg-primary rounded-xl p-xl shadow-lg text-on-primary flex flex-col gap-lg">
+<h3 class="font-headline-md text-headline-md">What's Next?</h3>
+<div class="flex flex-col gap-md">
+<button class="w-full bg-white text-primary font-label-md text-label-md py-lg rounded-lg shadow-sm hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-md" onclick="restartQuiz()">
+<span class="material-symbols-outlined">replay</span> Play Again
+                        </button>
+<button class="w-full bg-primary-container text-on-primary-container font-label-md text-label-md py-lg rounded-lg border border-primary-fixed hover:bg-on-primary-fixed-variant transition-colors flex items-center justify-center gap-md">
+<span class="material-symbols-outlined">trending_up</span> Next Lesson
+                        </button>
+<button class="w-full bg-transparent border border-white/30 text-white font-label-md text-label-md py-lg rounded-lg hover:bg-white/10 transition-colors flex items-center justify-center gap-md" onclick="goHome()">
+<span class="material-symbols-outlined">home</span> Back to Home
+                        </button>
+</div>
+</div>
+<!-- Visual Progress Highlight -->
+<div class="glass-card rounded-xl overflow-hidden shadow-sm group">
+<div class="h-40 relative">
+<img alt="Path to Fluency" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiqmXyEl_QgR8ditgaIpdfGnfwPWXROcvPgIn-AGeCvP-T0DBg-LSZSLLqvtXkMiT6M0INHOrLo3UB9ueG4bF8vfxPgKWSejJYzIPplyEPjK3XRH-inycExq3f9Fz_Hydanyupz-yQoGK6-wow4YmtUgJpF4TrXKZJh2_tms-UFvvnz_CN4XxEPibXVxI2ELRP25ikIFvTj45OEw7DHaCXH5tHVpt0ICEaipJQ8hZe6jMUyZgao1P8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-md left-md">
+<span class="font-label-sm text-label-sm text-white/80 uppercase tracking-widest">Skill Milestone</span>
+<p class="font-headline-md text-headline-md text-white">Path to Fluency</p>
+</div>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Level Progress</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">75%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary to-primary w-3/4"></div>
+</div>
+<p class="mt-md font-body-md text-body-md text-on-surface-variant">Just 2 more perfect scores to reach <span class="font-bold text-on-surface">Level 15!</span></p>
+</div>
+</div>
+<!-- Social Share -->
+<div class="p-lg border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center text-center">
+<p class="font-label-md text-label-md text-on-surface-variant mb-md">Brag a little! Share your score with friends.</p>
+<div class="flex gap-md">
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"><span class="material-symbols-outlined">share</span></button>
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"><span class="material-symbols-outlined">emoji_events</span></button>
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"><span class="material-symbols-outlined">group</span></button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 pb-safe md:hidden bg-surface border-t border-outline-variant shadow-lg">
+<button class="flex flex-col items-center justify-center text-on-surface-variant" onclick="goHome()">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-3 py-1">
+<span class="material-symbols-outlined">quiz</span>
+<span class="font-label-sm text-label-sm">Quiz</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-sm text-label-sm">Rank</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</nav>
+<!-- Footer (Desktop Only) -->
+<footer class="hidden md:flex flex-col items-center py-xl px-margin-desktop w-full mt-auto bg-surface-container-low border-t border-outline-variant">
+<div class="max-w-container-max w-full flex flex-col md:flex-row justify-between items-center gap-lg">
+<div class="font-headline-md text-headline-md text-primary">LinguistPro</div>
+<div class="flex gap-xl">
+<a class="text-on-surface-variant font-body-md text-body-md hover:underline hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:underline hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:underline hover:text-primary transition-colors" href="#">Contact Support</a>
+<a class="text-on-surface-variant font-body-md text-body-md hover:underline hover:text-primary transition-colors" href="#">About Us</a>
+</div>
+</div>
+<p class="mt-lg text-on-surface-variant font-body-md text-body-md opacity-70">© 2024 LinguistPro English Learning. All rights reserved.</p>
+</footer>
+<script>
+        // Mock State Handling (In a real app, this would come from quiz.html via localStorage or URL Params)
+        const DEFAULT_RESULTS = {
+            score: 8,
+            total: 10,
+            xp: 450,
+            userName: "Alex",
+            details: [
+                {
+                    question: "\"Whose\" vs \"Who's\" usage in complex sentences.",
+                    userAnswer: "Whose",
+                    correctAnswer: "Whose",
+                    isCorrect: true
+                },
+                {
+                    question: "Identify the gerund phrase in the narrative.",
+                    userAnswer: "Running late",
+                    correctAnswer: "Having finished the work",
+                    isCorrect: false,
+                    explanation: "The gerund phrase is \"Having finished the work,\" which acts as the subject."
+                },
+                {
+                    question: "Correct placement of \"only\" for intended meaning.",
+                    userAnswer: "I only eat apples",
+                    correctAnswer: "I only eat apples",
+                    isCorrect: true
+                }
+            ]
+        };
+
+        function getResults() {
+            const stored = localStorage.getItem('linguistpro_quiz_results');
+            if (stored) {
+                try {
+                    return JSON.parse(stored);
+                } catch (e) {
+                    return DEFAULT_RESULTS;
+                }
+            }
+            return DEFAULT_RESULTS;
+        }
+
+        function renderResults() {
+            const data = getResults();
+            const accuracy = Math.round((data.score / data.total) * 100);
+            
+            // Render Header
+            document.getElementById('welcome-text').textContent = `Outstanding performance, ${data.userName || 'Learner'}! You're mastering the material.`;
+            
+            // Render Ring and Score
+            const scoreRing = document.getElementById('score-ring');
+            const scoreText = document.getElementById('score-text');
+            const accuracyTitle = document.getElementById('accuracy-title');
+            const xpEarned = document.getElementById('xp-earned');
+            
+            scoreText.textContent = `${data.score}/${data.total}`;
+            accuracyTitle.textContent = `Your Accuracy: ${accuracy}%`;
+            xpEarned.textContent = data.xp;
+
+            // Animate Ring
+            const circumference = 552.92;
+            const offset = circumference - (accuracy / 100) * circumference;
+            setTimeout(() => {
+                scoreRing.style.strokeDashoffset = offset;
+            }, 300);
+
+            // Render Breakdown
+            const list = document.getElementById('breakdown-list');
+            list.innerHTML = '';
+            
+            data.details.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'p-lg flex gap-md items-start hover:bg-surface-container-low transition-colors';
+                
+                const iconColor = item.isCorrect ? 'primary' : 'error';
+                const iconName = item.isCorrect ? 'check_circle' : 'cancel';
+                
+                itemDiv.innerHTML = `
+                    <div class="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-${iconColor}/10 flex items-center justify-center text-${iconColor}">
+                        <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">${iconName}</span>
+                    </div>
+                    <div class="flex-grow">
+                        <p class="font-label-md text-label-md text-on-surface mb-xs">${item.question}</p>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Your answer: <span class="text-${iconColor} font-bold">${item.userAnswer}</span> — ${item.isCorrect ? 'Correct!' : 'Incorrect.'}</p>
+                        ${!item.isCorrect ? `
+                            <div class="mt-sm p-sm bg-error-container/20 rounded-lg text-on-error-container font-label-sm text-label-sm border border-error/10">
+                                <strong>Explanation:</strong> ${item.explanation}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+                list.appendChild(itemDiv);
+            });
+        }
+
+        function restartQuiz() {
+            // In a real app, clear relevant state and redirect
+            localStorage.removeItem('linguistpro_quiz_current_state');
+            window.location.href = 'quiz.html';
+        }
+
+        function goHome() {
+            window.location.href = 'index.html';
+        }
+
+        // Confetti Effect for Celebration
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#004ac6', '#64a8fe', '#0060ac', '#ffdbcd', '#2563eb'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti-piece', 'animate-fall');
+                
+                const size = Math.random() * 8 + 5 + 'px';
+                confetti.style.width = size;
+                confetti.style.height = size;
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animationDelay = Math.random() * 1.5 + 's';
+                confetti.style.animationDuration = Math.random() * 2 + 2 + 's';
+                
+                container.appendChild(confetti);
+                
+                // Cleanup
+                setTimeout(() => confetti.remove(), 4000);
+            }
+        }
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            renderResults();
+            setTimeout(createConfetti, 500);
+            
+            // Interactive UI elements
+            document.getElementById('view-all-btn').addEventListener('click', function() {
+                const icon = this.querySelector('.material-symbols-outlined');
+                icon.style.transform = icon.style.transform === 'rotate(180deg)' ? 'rotate(0deg)' : 'rotate(180deg)';
+                icon.style.transition = 'transform 0.3s ease';
+            });
+        });
+    </script>
+</body></html>
