@@ -12,7 +12,7 @@ const progress=document.getElementById("progress");
 loadQuestion();
 
 function loadQuestion(){
-
+startTimer();
 selected=-1;
 
 question.innerHTML=questions[currentQuestion].question;
@@ -78,5 +78,36 @@ localStorage.setItem("score",score);
 window.location.href="result.html";
 
 }
+
+}
+function startTimer(){
+
+clearInterval(timer);
+
+timeLeft=30;
+
+document.getElementById("timer").innerHTML=timeLeft+" sec";
+
+timer=setInterval(()=>{
+
+timeLeft--;
+
+document.getElementById("timer").innerHTML=timeLeft+" sec";
+
+if(timeLeft<=10){
+
+document.getElementById("timer").style.color="red";
+
+}
+
+if(timeLeft<=0){
+
+clearInterval(timer);
+
+nextQuestion();
+
+}
+
+},1000);
 
 }
