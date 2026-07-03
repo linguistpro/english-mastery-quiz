@@ -1,5 +1,7 @@
 let currentQuestion=0;
 let score=0;
+let timeLeft = 30;
+let timer;
 let selected=-1;
 
 const question=document.getElementById("question");
