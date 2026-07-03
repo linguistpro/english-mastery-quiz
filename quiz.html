@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguistPro Quiz</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f5f9ff;
+margin:0;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+margin-top:20px;
+}
+
+.option{
+display:block;
+padding:15px;
+margin:10px 0;
+background:#eef4ff;
+border-radius:10px;
+cursor:pointer;
+transition:.3s;
+}
+
+.option:hover{
+background:#2563eb;
+color:white;
+}
+
+button{
+width:100%;
+padding:15px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:10px;
+font-size:18px;
+margin-top:20px;
+cursor:pointer;
+}
+
+.progress{
+height:10px;
+background:#ddd;
+border-radius:20px;
+overflow:hidden;
+}
+
+.progress-bar{
+height:10px;
+width:10%;
+background:#2563eb;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 class="text-4xl font-bold text-center text-blue-700">
+LinguistPro Quiz
+</h1>
+
+<div class="card">
+
+<div class="flex justify-between mb-4">
+<span id="questionNumber">
+Question 1 / 10
+</span>
+
+<span id="timer">
+30 sec
+</span>
+</div>
+
+<div class="progress">
+<div class="progress-bar" id="progress"></div>
+</div>
+
+<h2 class="text-2xl font-bold mt-6" id="question">
+Loading Question...
+</h2>
+
+<div id="options"></div>
+
+<button onclick="nextQuestion()">
+Next Question
+</button>
+
+</div>
+
+</div>
+
+<script src="quiz.js"></script>
+
+</body>
+  </html>
