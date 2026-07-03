@@ -103,7 +103,7 @@ document.getElementById("timer").style.color="red";
 if(timeLeft<=0){
 
 clearInterval(timer);
-
+clearInterval(timer);
 nextQuestion();
 
 }
