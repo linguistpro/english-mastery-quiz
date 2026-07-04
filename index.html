@@ -3,101 +3,183 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LinguistPro</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
+<title>English Mastery Quiz</title>
 
 <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
-background:#f5f9ff;
-font-family:Arial,Helvetica,sans-serif;
+background:#f4f7ff;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
 }
 
-.hero{
-padding:70px 20px;
-text-align:center;
-}
+.container{
 
-.btn{
-display:block;
-width:250px;
-margin:15px auto;
-padding:15px;
-border-radius:12px;
-font-size:18px;
-font-weight:bold;
-text-decoration:none;
-transition:.3s;
-}
-
-.primary{
-background:#2563eb;
-color:white;
-}
-
-.secondary{
+width:90%;
+max-width:420px;
 background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+text-align:center;
+
+}
+
+.logo{
+
+font-size:60px;
+
+}
+
+h1{
+
 color:#2563eb;
-border:2px solid #2563eb;
+margin-top:10px;
+
+}
+
+p{
+
+color:#666;
+margin:15px 0;
+
 }
 
 .card{
-background:white;
-padding:25px;
+
+background:#eef4ff;
+padding:15px;
 border-radius:15px;
-margin:20px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-text-align:center;
+margin:20px 0;
+text-align:left;
+
 }
+
+.card h3{
+
+margin-bottom:10px;
+color:#2563eb;
+
+}
+
+.item{
+
+display:flex;
+justify-content:space-between;
+margin:8px 0;
+
+}
+
+button{
+
+width:100%;
+padding:15px;
+font-size:18px;
+border:none;
+border-radius:12px;
+background:#2563eb;
+color:white;
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#1d4ed8;
+
+}
+
+.footer{
+
+margin-top:20px;
+font-size:14px;
+color:#888;
+
+}
+
 </style>
 
 </head>
 
 <body>
 
-<header class="bg-blue-600 text-white p-5 text-center text-3xl font-bold">
-LinguistPro
-</header>
+<div class="container">
 
-<section class="hero">
+<div class="logo">📘</div>
 
-<h1 class="text-5xl font-bold mb-5">
-Master English Easily
-</h1>
+<h1>English Mastery Quiz</h1>
 
-<p class="text-xl text-gray-600 mb-10">
-Practice Grammar, Vocabulary and Spoken English with fun quizzes.
-</p>
-
-<a href="quiz.html" class="btn primary">
-Start Quiz
-</a>
-
-<a href="leaderboard.html" class="btn secondary">
-Leaderboard
-</a>
-
-</section>
+<p>Improve your Grammar, Vocabulary & Spoken English.</p>
 
 <div class="card">
 
-<h2 class="text-2xl font-bold mb-3">
-Your Progress
-</h2>
+<h3>Your Progress</h3>
 
-<p>
-Level 1 Beginner
-</p>
+<div class="item">
+<span>⭐ XP</span>
+<span id="xp">0</span>
+</div>
 
-<div style="background:#ddd;height:12px;border-radius:20px;margin-top:15px;">
-<div style="width:30%;height:12px;background:#2563eb;border-radius:20px;"></div>
+<div class="item">
+<span>🏆 Level</span>
+<span id="level">1</span>
+</div>
+
+<div class="item">
+<span>📊 Best Score</span>
+<span id="best">0</span>
+</div>
+
+<div class="item">
+<span>🔥 Streak</span>
+<span>1 Day</span>
 </div>
 
 </div>
 
-<footer class="text-center text-gray-500 p-8">
-© 2026 LinguistPro
-</footer>
+<button onclick="startQuiz()">
+🚀 Start Quiz
+</button>
+
+<div class="footer">
+
+Made with ❤️ by LinguistPro
+
+</div>
+
+</div>
+
+<script>
+
+let xp=localStorage.getItem("xp")||0;
+
+let best=localStorage.getItem("bestScore")||0;
+
+let level=Math.floor(xp/100)+1;
+
+document.getElementById("xp").innerHTML=xp;
+
+document.getElementById("best").innerHTML=best;
+
+document.getElementById("level").innerHTML=level;
+
+function startQuiz(){
+
+window.location.href="quiz.html";
+
+}
+
+</script>
 
 </body>
 </html>
