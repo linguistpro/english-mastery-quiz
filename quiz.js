@@ -1,3 +1,11 @@
+const category = localStorage.getItem("category") || "grammar";
+
+const title = document.getElementById("categoryTitle");
+
+if (title) {
+    title.innerHTML =
+        category.charAt(0).toUpperCase() + category.slice(1) + " Quiz";
+}
 const shuffledQuestions = [...questions]
   .sort(() => Math.random() - 0.5)
   .slice(0, 20);
