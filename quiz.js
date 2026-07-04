@@ -1,3 +1,7 @@
+const shuffledQuestions = [...questions]
+  .sort(() => Math.random() - 0.5)
+  .slice(0, 20);
+
 let currentQuestion = 0;
 let score = 0;
 let timeLeft = 30;
@@ -23,16 +27,17 @@ function loadQuestion() {
         exp.innerHTML = "";
     }
 
-    question.innerHTML = questions[currentQuestion].question;
+    question.innerHTML = shuffledQuestions[currentQuestion].question;
 
-    number.innerHTML = `Question ${currentQuestion + 1} / ${questions.length}`;
+    number.innerHTML =
+        `Question ${currentQuestion + 1} / ${shuffledQuestions.length}`;
 
     progress.style.width =
-        ((currentQuestion + 1) / questions.length * 100) + "%";
+        ((currentQuestion + 1) / shuffledQuestions.length * 100) + "%";
 
     options.innerHTML = "";
 
-    questions[currentQuestion].options.forEach((item, index) => {
+    shuffledQuestions[currentQuestion].options.forEach((item, index) => {
 
         const div = document.createElement("div");
 
@@ -52,7 +57,7 @@ function loadQuestion() {
                 opt.style.pointerEvents = "none";
             });
 
-            if (index === questions[currentQuestion].answer) {
+            if (index === shuffledQuestions[currentQuestion].answer) {
 
                 div.style.background = "green";
                 div.style.color = "white";
@@ -65,7 +70,7 @@ function loadQuestion() {
                 div.style.color = "white";
 
                 const correct =
-                    document.querySelectorAll(".option")[questions[currentQuestion].answer];
+                    document.querySelectorAll(".option")[shuffledQuestions[currentQuestion].answer];
 
                 correct.style.background = "green";
                 correct.style.color = "white";
@@ -74,7 +79,7 @@ function loadQuestion() {
             if (exp) {
                 exp.style.display = "block";
                 exp.innerHTML =
-                    questions[currentQuestion].explanation || "";
+                    shuffledQuestions[currentQuestion].explanation || "";
             }
 
             setTimeout(() => {
@@ -88,7 +93,6 @@ function loadQuestion() {
     });
 
     startTimer();
-
 }
 
 function nextQuestion() {
@@ -97,7 +101,7 @@ function nextQuestion() {
 
     currentQuestion++;
 
-    if (currentQuestion < questions.length) {
+    if (currentQuestion < shuffledQuestions.length) {
 
         loadQuestion();
 
@@ -108,7 +112,6 @@ function nextQuestion() {
         window.location.href = "result.html";
 
     }
-
 }
 
 function startTimer() {
@@ -137,7 +140,7 @@ function startTimer() {
 
             currentQuestion++;
 
-            if (currentQuestion < questions.length) {
+            if (currentQuestion < shuffledQuestions.length) {
 
                 loadQuestion();
 
