@@ -1,4 +1,4 @@
-const questions = [
+window.questions = [
 {
 question:"What is the synonym of Happy?",
 options:["Sad","Joyful","Weak","Hard"],
