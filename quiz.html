@@ -76,8 +76,13 @@ background:#2563eb;
 <div class="container">
 
 <h1 class="text-4xl font-bold text-center text-blue-700">
-LinguistPro Quiz
+LinguistPro
 </h1>
+
+<h2 id="categoryTitle"
+class="text-2xl font-semibold text-center text-gray-700 mt-2">
+Grammar Quiz
+</h2>
 
 <div class="card">
 
@@ -111,7 +116,19 @@ Next Question
 
 <script>
 const category = localStorage.getItem("category") || "grammar";
+const category = localStorage.getItem("category") || "grammar";
 
+const title = document.getElementById("categoryTitle");
+
+const names = {
+grammar:"📘 Grammar Quiz",
+vocabulary:"📖 Vocabulary Quiz",
+spoken:"🗣️ Spoken English Quiz",
+tenses:"📝 Tenses Quiz",
+mixed:"🎯 Mixed Quiz"
+};
+
+title.innerHTML = names[category];
 const script = document.createElement("script");
 script.src = category + ".js";
 
