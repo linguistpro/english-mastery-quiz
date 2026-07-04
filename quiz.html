@@ -109,5 +109,17 @@ Next Question
 
 </div>
 
-<script src="questions.js"></script>
-<script src="quiz.js"></script>
+<script>
+const category = localStorage.getItem("category") || "grammar";
+
+const script = document.createElement("script");
+script.src = category + ".js";
+
+script.onload = function () {
+    const quizScript = document.createElement("script");
+    quizScript.src = "quiz.js";
+    document.body.appendChild(quizScript);
+};
+
+document.body.appendChild(script);
+</script>
