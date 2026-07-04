@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Select Category</title>
+
+<style>
+
+body{
+font-family:Arial,sans-serif;
+background:#eef4ff;
+margin:0;
+padding:20px;
+}
+
+h1{
+text-align:center;
+color:#2563eb;
+}
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:20px;
+margin-top:30px;
+
+}
+
+.card{
+
+background:white;
+padding:25px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+cursor:pointer;
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:scale(1.05);
+
+background:#2563eb;
+color:white;
+
+}
+
+.icon{
+
+font-size:45px;
+
+}
+
+button{
+
+margin-top:30px;
+width:100%;
+padding:15px;
+font-size:18px;
+border:none;
+border-radius:10px;
+background:#2563eb;
+color:white;
+cursor:pointer;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Select Category</h1>
+
+<div class="grid">
+
+<div class="card" onclick="selectCategory('grammar')">
+
+<div class="icon">📘</div>
+
+<h3>Grammar</h3>
+
+</div>
+
+<div class="card" onclick="selectCategory('vocabulary')">
+
+<div class="icon">📖</div>
+
+<h3>Vocabulary</h3>
+
+</div>
+
+<div class="card" onclick="selectCategory('spoken')">
+
+<div class="icon">🗣️</div>
+
+<h3>Spoken English</h3>
+
+</div>
+
+<div class="card" onclick="selectCategory('tenses')">
+
+<div class="icon">📝</div>
+
+<h3>Tenses</h3>
+
+</div>
+
+<div class="card" onclick="selectCategory('mixed')">
+
+<div class="icon">🎯</div>
+
+<h3>Mixed Quiz</h3>
+
+</div>
+
+</div>
+
+<script>
+
+function selectCategory(category){
+
+localStorage.setItem("category",category);
+
+window.location.href="quiz.html";
+
+}
+
+</script>
+
+</body>
+</html>
