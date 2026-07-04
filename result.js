@@ -3,16 +3,30 @@ const total = 20;
 
 document.getElementById("score").innerHTML = score + "/" + total;
 
+// XP
 const xp = score * 10;
 document.getElementById("xp").innerHTML = "⭐ XP: " + xp;
 
+// Save XP
+localStorage.setItem("xp", xp);
+
+// Best Score
+let bestScore = Number(localStorage.getItem("bestScore")) || 0;
+
+if (score > bestScore) {
+    bestScore = score;
+    localStorage.setItem("bestScore", bestScore);
+}
+
+// Level
 const level = Math.floor(xp / 100) + 1;
 document.getElementById("level").innerHTML = "🏆 Level: " + level;
 
+// Progress
 const percent = (score / total) * 100;
-
 document.getElementById("progressBar").style.width = percent + "%";
 
+// Grade
 let grade = "";
 let message = "";
 
