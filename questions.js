@@ -240,3 +240,449 @@ const questions = [
   answer: 1,
   explanation: "'I' takes 'have' in the present perfect tense."
 },
+  {
+  question: "What is the synonym of 'Big'?",
+  options: ["Tiny", "Large", "Small", "Short"],
+  answer: 1,
+  explanation: "'Large' means the same as 'Big'."
+},
+{
+  question: "What is the antonym of 'Hot'?",
+  options: ["Warm", "Cool", "Cold", "Heat"],
+  answer: 2,
+  explanation: "'Cold' is the opposite of 'Hot'."
+},
+{
+  question: "Choose the correct meaning of 'Honest'.",
+  options: ["Truthful", "Lazy", "Cruel", "Weak"],
+  answer: 0,
+  explanation: "'Honest' means truthful."
+},
+{
+  question: "Which word means 'Very Tired'?",
+  options: ["Energetic", "Exhausted", "Happy", "Strong"],
+  answer: 1,
+  explanation: "'Exhausted' means extremely tired."
+},
+{
+  question: "Choose the synonym of 'Begin'.",
+  options: ["End", "Finish", "Start", "Close"],
+  answer: 2,
+  explanation: "'Start' means the same as 'Begin'."
+},
+{
+  question: "What is the opposite of 'Early'?",
+  options: ["Late", "Soon", "Fast", "Morning"],
+  answer: 0,
+  explanation: "'Late' is the opposite of 'Early'."
+},
+{
+  question: "Which word means 'Very Happy'?",
+  options: ["Sad", "Delighted", "Angry", "Weak"],
+  answer: 1,
+  explanation: "'Delighted' means very happy."
+},
+{
+  question: "Choose the correct meaning of 'Ancient'.",
+  options: ["Modern", "Old", "Young", "New"],
+  answer: 1,
+  explanation: "'Ancient' means very old."
+},
+{
+  question: "What is the synonym of 'Smart'?",
+  options: ["Intelligent", "Slow", "Weak", "Lazy"],
+  answer: 0,
+  explanation: "'Intelligent' means smart."
+},
+{
+  question: "Choose the opposite of 'Victory'.",
+  options: ["Success", "Defeat", "Win", "Champion"],
+  answer: 1,
+  explanation: "'Defeat' is the opposite of 'Victory'."
+},
+{
+  question: "What is the synonym of 'Beautiful'?",
+  options: ["Ugly", "Pretty", "Dirty", "Weak"],
+  answer: 1,
+  explanation: "'Pretty' means beautiful."
+},
+{
+  question: "What is the antonym of 'Easy'?",
+  options: ["Simple", "Hard", "Light", "Fast"],
+  answer: 1,
+  explanation: "'Hard' is the opposite of 'Easy'."
+},
+{
+  question: "Choose the correct sentence.",
+  options: ["He don't like tea.", "He doesn't like tea.", "He not likes tea.", "He didn't likes tea."],
+  answer: 1,
+  explanation: "Use 'doesn't' with 'he'."
+},
+{
+  question: "What is the synonym of 'Silent'?",
+  options: ["Quiet", "Loud", "Angry", "Fast"],
+  answer: 0,
+  explanation: "'Quiet' means silent."
+},
+{
+  question: "Choose the correct preposition: She is good ___ English.",
+  options: ["at", "in", "on", "to"],
+  answer: 0,
+  explanation: "We say 'good at English'."
+},
+{
+  question: "Which word is a pronoun?",
+  options: ["Book", "He", "Run", "Beautiful"],
+  answer: 1,
+  explanation: "'He' is a pronoun."
+},
+{
+  question: "What is the opposite of 'Strong'?",
+  options: ["Powerful", "Weak", "Healthy", "Brave"],
+  answer: 1,
+  explanation: "'Weak' is the opposite of 'Strong'."
+},
+{
+  question: "Choose the correct article.",
+  options: ["a elephant", "an elephant", "the elephant", "elephant"],
+  answer: 1,
+  explanation: "Use 'an' before words beginning with a vowel sound."
+},
+{
+  question: "Fill in the blank: They ___ in Mumbai.",
+  options: ["lives", "live", "living", "lived"],
+  answer: 1,
+  explanation: "'They' takes the base verb 'live'."
+},
+{
+  question: "What is the synonym of 'Quickly'?",
+  options: ["Slowly", "Rapidly", "Quietly", "Softly"],
+  answer: 1,
+  explanation: "'Rapidly' means quickly."
+},
+  {
+  question: "Choose the correct preposition: The book is ___ the table.",
+  options: ["on", "in", "under", "at"],
+  answer: 0,
+  explanation: "The book is 'on' the table."
+},
+{
+  question: "Choose the correct article.",
+  options: ["a honest man", "an honest man", "the honest man", "honest man"],
+  answer: 1,
+  explanation: "Use 'an' before words with a vowel sound like 'honest'."
+},
+{
+  question: "She arrived ___ the airport early.",
+  options: ["at", "on", "in", "for"],
+  answer: 0,
+  explanation: "We arrive 'at' an airport."
+},
+{
+  question: "Choose the correct modal verb: You ___ wear a seatbelt.",
+  options: ["must", "can", "may", "could"],
+  answer: 0,
+  explanation: "'Must' expresses obligation."
+},
+{
+  question: "Fill in the blank: I have lived here ___ 2020.",
+  options: ["for", "since", "from", "at"],
+  answer: 1,
+  explanation: "Use 'since' with a starting point in time."
+},
+{
+  question: "Choose the correct sentence.",
+  options: ["Can you help me?", "Can you helps me?", "Can you helped me?", "Can you helping me?"],
+  answer: 0,
+  explanation: "Use the base verb after 'can'."
+},
+{
+  question: "The children are playing ___ the garden.",
+  options: ["in", "at", "on", "to"],
+  answer: 0,
+  explanation: "We say 'in the garden'."
+},
+{
+  question: "Choose the correct article.",
+  options: ["a hour", "an hour", "the hour", "hour"],
+  answer: 1,
+  explanation: "'Hour' begins with a silent 'h', so use 'an'."
+},
+{
+  question: "You ___ finish your homework before watching TV.",
+  options: ["should", "might", "could", "would"],
+  answer: 0,
+  explanation: "'Should' is used for advice."
+},
+{
+  question: "We walked ___ the bridge.",
+  options: ["across", "between", "during", "inside"],
+  answer: 0,
+  explanation: "'Across' means from one side to the other."
+},
+  {
+  question: "Choose the correct modal verb: You ___ smoke in the hospital.",
+  options: ["must not", "can", "may", "could"],
+  answer: 0,
+  explanation: "'Must not' expresses prohibition."
+},
+{
+  question: "Choose the passive voice of: 'The teacher teaches English.'",
+  options: [
+    "English is taught by the teacher.",
+    "English taught by the teacher.",
+    "English was taught by the teacher.",
+    "English has taught by the teacher."
+  ],
+  answer: 0,
+  explanation: "Present simple passive uses 'is/am/are + past participle'."
+},
+{
+  question: "Choose the correct question tag: 'She is a doctor, ___?'",
+  options: ["isn't she", "doesn't she", "won't she", "didn't she"],
+  answer: 0,
+  explanation: "The correct tag is 'isn't she?'."
+},
+{
+  question: "Which sentence is grammatically correct?",
+  options: [
+    "Each student has a book.",
+    "Each student have a book.",
+    "Each students have books.",
+    "Each students has books."
+  ],
+  answer: 0,
+  explanation: "'Each' is singular, so it takes 'has'."
+},
+{
+  question: "Choose the correct word: I am interested ___ music.",
+  options: ["in", "on", "at", "with"],
+  answer: 0,
+  explanation: "We say 'interested in'."
+},
+{
+  question: "Choose the correct sentence.",
+  options: [
+    "Neither of the boys is absent.",
+    "Neither of the boys are absent.",
+    "Neither boys is absent.",
+    "Neither boys are absent."
+  ],
+  answer: 0,
+  explanation: "'Neither' is singular."
+},
+{
+  question: "What is the comparative form of 'good'?",
+  options: ["gooder", "better", "best", "more good"],
+  answer: 1,
+  explanation: "'Better' is the comparative form of 'good'."
+},
+{
+  question: "Choose the correct sentence.",
+  options: [
+    "I have lived here for five years.",
+    "I am living here since five years.",
+    "I live here since five years.",
+    "I had lived here since five years."
+  ],
+  answer: 0,
+  explanation: "Use 'have lived' with 'for' to express duration."
+},
+{
+  question: "Which sentence uses the future continuous tense?",
+  options: [
+    "I will be studying tomorrow.",
+    "I study tomorrow.",
+    "I studied tomorrow.",
+    "I have studied tomorrow."
+  ],
+  answer: 0,
+  explanation: "'Will be studying' is the future continuous tense."
+},
+{
+  question: "Choose the correct sentence.",
+  options: [
+    "If it rains, we will stay home.",
+    "If it will rain, we stay home.",
+    "If it rains, we stays home.",
+    "If raining, we stay home."
+  ],
+  answer: 0,
+  explanation: "Use the present simple in the 'if' clause and 'will' in the main clause."
+},
+  {
+  question: "Choose the correct modal verb: You ___ smoke in the hospital.",
+  options: ["must not", "can", "may", "could"],
+  answer: 0,
+  explanation: "'Must not' expresses prohibition."
+},
+{
+  question: "Choose the passive voice of: 'The teacher teaches English.'",
+  options: [
+    "English is taught by the teacher.",
+    "English taught by the teacher.",
+    "English was taught by the teacher.",
+    "English has taught by the teacher."
+  ],
+  answer: 0,
+  explanation: "Present simple passive uses 'is/am/are + past participle'."
+},
+{
+  question: "Choose the correct question tag: 'She is a doctor, ___?'",
+  options: ["isn't she", "doesn't she", "won't she", "didn't she"],
+  answer: 0,
+  explanation: "The correct tag is 'isn't she?'."
+},
+{
+  question: "Which sentence is grammatically correct?",
+  options: [
+    "Each student has a book.",
+    "Each student have a book.",
+    "Each students have books.",
+    "Each students has books."
+  ],
+  answer: 0,
+  explanation: "'Each' is singular, so it takes 'has'."
+},
+{
+  question: "Choose the correct word: I am interested ___ music.",
+  options: ["in", "on", "at", "with"],
+  answer: 0,
+  explanation: "We say 'interested in'."
+},
+{
+  question: "Choose the correct sentence.",
+  options: [
+    "Neither of the boys is absent.",
+    "Neither of the boys are absent.",
+    "Neither boys is absent.",
+    "Neither boys are absent."
+  ],
+  answer: 0,
+  explanation: "'Neither' is singular."
+},
+{
+  question: "What is the comparative form of 'good'?",
+  options: ["gooder", "better", "best", "more good"],
+  answer: 1,
+  explanation: "'Better' is the comparative form of 'good'."
+},
+{
+  question: "Choose the correct sentence.",
+  options: [
+    "I have lived here for five years.",
+    "I am living here since five years.",
+    "I live here since five years.",
+    "I had lived here since five years."
+  ],
+  answer: 0,
+  explanation: "Use 'have lived' with 'for' to express duration."
+},
+{
+  question: "Which sentence uses the future continuous tense?",
+  options: [
+    "I will be studying tomorrow.",
+    "I study tomorrow.",
+    "I studied tomorrow.",
+    "I have studied tomorrow."
+  ],
+  answer: 0,
+  explanation: "'Will be studying' is the future continuous tense."
+},
+{
+  question: "Choose the correct sentence.",
+  options: [
+    "If it rains, we will stay home.",
+    "If it will rain, we stay home.",
+    "If it rains, we stays home.",
+    "If raining, we stay home."
+  ],
+  answer: 0,
+  explanation: "Use the present simple in the 'if' clause and 'will' in the main clause."
+},
+  {
+  question: "Choose the correct sentence.",
+  options: [
+    "Neither Ram nor Shyam is coming.",
+    "Neither Ram nor Shyam are coming.",
+    "Neither Ram or Shyam is coming.",
+    "Neither Ram and Shyam is coming."
+  ],
+  answer: 0,
+  explanation: "With 'neither...nor', the verb agrees with the nearest subject."
+},
+{
+  question: "What is the meaning of 'Optimistic'?",
+  options: ["Hopeful", "Careless", "Angry", "Lazy"],
+  answer: 0,
+  explanation: "'Optimistic' means hopeful and positive."
+},
+{
+  question: "Choose the correct passive voice.",
+  options: [
+    "The work was completed by John.",
+    "The work completed by John.",
+    "The work is complete by John.",
+    "The work has complete by John."
+  ],
+  answer: 0,
+  explanation: "Past simple passive uses 'was/were + past participle'."
+},
+{
+  question: "What is the synonym of 'Ancient'?",
+  options: ["Modern", "Old", "Tiny", "Quick"],
+  answer: 1,
+  explanation: "'Old' is the synonym of 'Ancient'."
+},
+{
+  question: "Choose the correct sentence.",
+  options: [
+    "He has never been to Delhi.",
+    "He never has been to Delhi.",
+    "He has never went to Delhi.",
+    "He never been to Delhi."
+  ],
+  answer: 0,
+  explanation: "Present perfect uses 'has been'."
+},
+{
+  question: "Which word is a conjunction?",
+  options: ["Although", "Beautiful", "Quickly", "Chair"],
+  answer: 0,
+  explanation: "'Although' is a conjunction."
+},
+{
+  question: "Choose the correct preposition.",
+  options: ["Interested in", "Interested on", "Interested at", "Interested for"],
+  answer: 0,
+  explanation: "We say 'interested in'."
+},
+{
+  question: "What is the opposite of 'Expand'?",
+  options: ["Increase", "Grow", "Shrink", "Develop"],
+  answer: 2,
+  explanation: "'Shrink' is the opposite of 'Expand'."
+},
+{
+  question: "Choose the correct sentence.",
+  options: [
+    "If I had money, I would buy a car.",
+    "If I have money, I would buy a car.",
+    "If I had money, I will buy a car.",
+    "If I has money, I would buy a car."
+  ],
+  answer: 0,
+  explanation: "This is the correct second conditional structure."
+},
+{
+  question: "What does the idiom 'Hit the nail on the head' mean?",
+  options: [
+    "To miss the point",
+    "To say exactly the right thing",
+    "To hit someone",
+    "To work very hard"
+  ],
+  answer: 1,
+  explanation: "It means to say or do exactly the right thing."
+}
+];
