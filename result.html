@@ -88,24 +88,6 @@ Play Again
 
 </div>
 
-<script>
-let score=localStorage.getItem("score")||0;
-let total=20;
-
-document.getElementById("score").innerHTML=score+"/"+total;
-
-let percent=(score/total)*100;
-
-if(percent>=80){
-document.getElementById("message").innerHTML="Excellent! 🏆";
-}
-else if(percent>=50){
-document.getElementById("message").innerHTML="Good Job 👍";
-}
-else{
-document.getElementById("message").innerHTML="Keep Practicing 💪";
-}
-</script>
 <script src="result.js"></script>
 </body>
   </html>
