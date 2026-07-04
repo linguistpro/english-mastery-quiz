@@ -1,25 +1,21 @@
-const category = localStorage.getItem("category") || "grammar";
-
-const title = document.getElementById("categoryTitle");
-
-if (title) {
-    title.innerHTML =
-        category.charAt(0).toUpperCase() + category.slice(1) + " Quiz";
-}
-const shuffledQuestions = [...questions]
-  .sort(() => Math.random() - 0.5)
-  .slice(0, 20);
-
 let currentQuestion = 0;
 let score = 0;
 let timeLeft = 30;
 let timer;
 let selected = -1;
 
+// Check if questions are loaded
+if (!window.questions || window.questions.length === 0) {
+    document.getElementById("question").innerHTML =
+        "No questions found! Please check your category file.";
+    throw new Error("Questions not loaded");
+}
+
 const question = document.getElementById("question");
 const options = document.getElementById("options");
 const number = document.getElementById("questionNumber");
 const progress = document.getElementById("progress");
+const explanation = document.getElementById("explanation");
 
 loadQuestion();
 
@@ -28,24 +24,23 @@ function loadQuestion() {
     clearInterval(timer);
 
     selected = -1;
-
-    const exp = document.getElementById("explanation");
-    if (exp) {
-        exp.style.display = "none";
-        exp.innerHTML = "";
-    }
-
-    question.innerHTML = shuffledQuestions[currentQuestion].question;
+    timeLeft = 30;
 
     number.innerHTML =
-        `Question ${currentQuestion + 1} / ${shuffledQuestions.length}`;
+        `Question ${currentQuestion + 1} / ${questions.length}`;
 
     progress.style.width =
-        ((currentQuestion + 1) / shuffledQuestions.length * 100) + "%";
+        ((currentQuestion + 1) / questions.length) * 100 + "%";
+
+    question.innerHTML =
+        questions[currentQuestion].question;
 
     options.innerHTML = "";
 
-    shuffledQuestions[currentQuestion].options.forEach((item, index) => {
+    explanation.style.display = "none";
+    explanation.innerHTML = "";
+
+    questions[currentQuestion].options.forEach((item, index) => {
 
         const div = document.createElement("div");
 
@@ -55,45 +50,15 @@ function loadQuestion() {
 
         div.onclick = function () {
 
-            if (selected !== -1) return;
-
-            selected = index;
-
-            clearInterval(timer);
-
             document.querySelectorAll(".option").forEach(opt => {
-                opt.style.pointerEvents = "none";
+                opt.style.background = "#eef4ff";
+                opt.style.color = "black";
             });
 
-            if (index === shuffledQuestions[currentQuestion].answer) {
+            div.style.background = "#2563eb";
+            div.style.color = "white";
 
-                div.style.background = "green";
-                div.style.color = "white";
-
-                score++;
-
-            } else {
-
-                div.style.background = "red";
-                div.style.color = "white";
-
-                const correct =
-                    document.querySelectorAll(".option")[shuffledQuestions[currentQuestion].answer];
-
-                correct.style.background = "green";
-                correct.style.color = "white";
-            }
-
-            if (exp) {
-                exp.style.display = "block";
-                exp.innerHTML =
-                    shuffledQuestions[currentQuestion].explanation || "";
-            }
-
-            setTimeout(() => {
-                nextQuestion();
-            }, 2000);
-
+            selected = index;
         };
 
         options.appendChild(div);
@@ -107,57 +72,73 @@ function nextQuestion() {
 
     clearInterval(timer);
 
-    currentQuestion++;
-
-    if (currentQuestion < shuffledQuestions.length) {
-
-        loadQuestion();
-
-    } else {
-
-        localStorage.setItem("score", score);
-
-        window.location.href = "result.html";
-
+    if (selected == -1) {
+        alert("Please select an answer.");
+        return;
     }
+
+    if (selected === questions[currentQuestion].answer) {
+        score++;
+    }
+
+    explanation.style.display = "block";
+    explanation.innerHTML =
+        "Explanation: " + questions[currentQuestion].explanation;
+
+    setTimeout(() => {
+
+        currentQuestion++;
+
+        if (currentQuestion < questions.length) {
+
+            loadQuestion();
+
+        } else {
+
+            localStorage.setItem("score", score);
+            localStorage.setItem("total", questions.length);
+
+            window.location.href = "result.html";
+        }
+
+    }, 1500);
+
 }
 
 function startTimer() {
 
-    timeLeft = 30;
-
-    const timerElement = document.getElementById("timer");
-
-    timerElement.style.color = "black";
-
-    timerElement.innerHTML = timeLeft + " sec";
+    document.getElementById("timer").innerHTML = timeLeft + " sec";
+    document.getElementById("timer").style.color = "black";
 
     timer = setInterval(() => {
 
         timeLeft--;
 
-        timerElement.innerHTML = timeLeft + " sec";
+        document.getElementById("timer").innerHTML =
+            timeLeft + " sec";
 
         if (timeLeft <= 10) {
-            timerElement.style.color = "red";
+            document.getElementById("timer").style.color = "red";
         }
 
         if (timeLeft <= 0) {
 
             clearInterval(timer);
 
+            selected = 999;
+
             currentQuestion++;
 
-            if (currentQuestion < shuffledQuestions.length) {
+            if (currentQuestion < questions.length) {
 
                 loadQuestion();
 
             } else {
 
                 localStorage.setItem("score", score);
+                localStorage.setItem("total", questions.length);
 
                 window.location.href = "result.html";
-
             }
 
         }
