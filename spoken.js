@@ -1,4 +1,4 @@
-const questions = [
+window.questions = [
 {
 question:"How do you greet someone in the morning?",
 options:["Good Morning","Good Night","Bye","Welcome"],
