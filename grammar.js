@@ -1,4 +1,4 @@
-const questions = [
+window.questions = [
   {
   question: "Choose the correct sentence.",
   options: ["He go to school.", "He goes to school.", "He going school.", "He gone school."],
