@@ -132,7 +132,9 @@ title.innerHTML = names[category];
 const script = document.createElement("script");
 script.src = category + ".js";
 
-script.onload = function () {
+script.onload = function () { 
+    console.log(questions);
+alert(questions.length);
     const quizScript = document.createElement("script");
     quizScript.src = "quiz.js";
     document.body.appendChild(quizScript);
