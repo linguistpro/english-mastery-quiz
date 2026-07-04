@@ -179,4 +179,64 @@ const questions = [
   answer: 1,
   explanation: "'He' takes 'was' in the past tense."
 },
- ]; 
+ 
+{
+  question: "Choose the correct sentence.",
+  options: ["She has finished her work.", "She have finished her work.", "She having finished her work.", "She has finish her work."],
+  answer: 0,
+  explanation: "'She' takes 'has' in the present perfect tense."
+},
+{
+  question: "Fill in the blank: They ___ watching TV now.",
+  options: ["is", "are", "was", "be"],
+  answer: 1,
+  explanation: "'They' takes 'are' in the present continuous tense."
+},
+{
+  question: "Choose the correct future tense sentence.",
+  options: ["I will visit Delhi tomorrow.", "I visited Delhi tomorrow.", "I am visit Delhi tomorrow.", "I visiting Delhi tomorrow."],
+  answer: 0,
+  explanation: "'Will visit' is the correct future tense."
+},
+{
+  question: "Which sentence is in the past tense?",
+  options: ["He writes a letter.", "He wrote a letter.", "He is writing a letter.", "He will write a letter."],
+  answer: 1,
+  explanation: "'Wrote' is the past tense of 'write'."
+},
+{
+  question: "Fill in the blank: She ___ to school every day.",
+  options: ["go", "goes", "going", "gone"],
+  answer: 1,
+  explanation: "For third-person singular, use 'goes'."
+},
+{
+  question: "Choose the correct helping verb.",
+  options: ["He are playing.", "He is playing.", "He am playing.", "He were playing."],
+  answer: 1,
+  explanation: "'He' takes 'is'."
+},
+{
+  question: "Identify the present continuous sentence.",
+  options: ["I eat rice.", "I am eating rice.", "I ate rice.", "I will eat rice."],
+  answer: 1,
+  explanation: "'Am eating' shows present continuous."
+},
+{
+  question: "Complete the sentence: We ___ our homework yesterday.",
+  options: ["finish", "finished", "finishing", "finishes"],
+  answer: 1,
+  explanation: "'Yesterday' requires the past tense 'finished'."
+},
+{
+  question: "Choose the correct sentence.",
+  options: ["They was happy.", "They were happy.", "They is happy.", "They be happy."],
+  answer: 1,
+  explanation: "'They' takes 'were' in the past tense."
+},
+{
+  question: "Fill in the blank: I ___ finished my homework.",
+  options: ["has", "have", "hads", "having"],
+  answer: 1,
+  explanation: "'I' takes 'have' in the present perfect tense."
+},
