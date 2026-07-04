@@ -1,4 +1,4 @@
-const questions = [
+window.questions = [
 {
 question:"Choose the correct article.",
 options:["a apple","an apple","the apple","apple"],
