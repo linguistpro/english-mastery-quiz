@@ -1,4 +1,4 @@
-const questions = [
+window.questions = [
 {
 question:"I ___ cricket every Sunday.",
 options:["play","played","playing","plays"],
